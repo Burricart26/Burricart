@@ -48,15 +48,15 @@
         border-radius: 25px;
     }
     .home {
-        padding: 80px 20px;
-        text-align: center;
+    padding: 40px 0;
+    text-align: center;
     }
-    .home-image {
-        inline-size: 80%;
-        max-inline-size: 900px;
-        border-radius: 20px;
-        margin: 30px auto;
-        display: block;
+  .home-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
     }
     .grid {
         display: grid;
@@ -153,9 +153,24 @@
         cursor: pointer;
         user-select: none;
     }
+    .notification{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#113d00;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:1000;
+    }
 </style>
 </head>
 <body>
+    <audio id="notifSound">
+<source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg">
+</audio>
+
 <!-- HEADER -->
 <header>
     <h1>BurriCart</h1>
@@ -188,6 +203,16 @@
         <option value="Bottoms">Bottoms</option>
         <option value="Shoes">Shoes</option>
         <option value="Jackets">Jackets</option>
+        <option value="Food">Food</option>
+        <option value="Drinks">Drinks</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Accessories">Accessories</option>
+        <option value="School Supplies">School Supplies</option>
+        <option value="Books">Books</option>
+        <option value="Art Supplies">Art Supplies</option>
+        <option value="Office Supplies">Office Supplies</option>
+
     </select>
 
 
@@ -256,6 +281,527 @@
             </div>
         </div>
 
+        <div class="pin" data-category="Tops">
+<img src="https://i.pinimg.com/736x/7a/53/92/7a5392f6e5e0e6eec1e54f4dc38d33cd.jpg">
+<div class="overlay">
+<p>Oversized Graphic Tee - ₱349.99</p>
+<button class="shop-btn" onclick="addToCart('Oversized Graphic Tee',349.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Tops">
+<img src="https://i.pinimg.com/736x/41/8c/48/418c48e96cfd8c4c2b6e74d4a91c9c3a.jpg">
+<div class="overlay">
+<p>Striped Polo Shirt - ₱429.99</p>
+<button class="shop-btn" onclick="addToCart('Striped Polo Shirt',429.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Tops">
+<img src="https://i.pinimg.com/736x/cc/2e/1b/cc2e1b8ef2f3a36c9f4e44f7c5f2cb0f.jpg">
+<div class="overlay">
+<p>Minimalist White Tee - ₱249.99</p>
+<button class="shop-btn" onclick="addToCart('Minimalist White Tee',249.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Bottoms">
+<img src="https://i.pinimg.com/736x/b7/4a/0e/b74a0e37e71fa2f3b6d0ef3a83f9b0d2.jpg">
+<div class="overlay">
+<p>Cargo Pants - ₱489.99</p>
+<button class="shop-btn" onclick="addToCart('Cargo Pants',489.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Bottoms">
+<img src="https://i.pinimg.com/736x/7c/3b/54/7c3b548d4efaa2e1c97c7c1b3e7b38fa.jpg">
+<div class="overlay">
+<p>Black Skinny Jeans - ₱399.99</p>
+<button class="shop-btn" onclick="addToCart('Black Skinny Jeans',399.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Bottoms">
+<img src="https://i.pinimg.com/736x/1c/ef/75/1cef75d0a8cfc5f0d92a84e4a7d8d0a1.jpg">
+<div class="overlay">
+<p>Relaxed Fit Denim - ₱459.99</p>
+<button class="shop-btn" onclick="addToCart('Relaxed Fit Denim',459.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Shoes">
+<img src="https://i.pinimg.com/736x/f3/1c/2a/f31c2a7b5c1a7b3a3fbb4b2d9d67c77f.jpg">
+<div class="overlay">
+<p>Nike Air Force 1 - ₱1,399.99</p>
+<button class="shop-btn" onclick="addToCart('Nike Air Force 1',1399.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Shoes">
+<img src="https://i.pinimg.com/736x/1c/6d/b8/1c6db8a33e7c5a3cb2a6e41a6c0c39a5.jpg">
+<div class="overlay">
+<p>Converse Chuck Taylor - ₱999.99</p>
+<button class="shop-btn" onclick="addToCart('Converse Chuck Taylor',999.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Shoes">
+<img src="https://i.pinimg.com/736x/4c/f6/76/4cf676a8c9d9e46e46c7a08c56f7b42a.jpg">
+<div class="overlay">
+<p>New Balance 550 - ₱1,299.99</p>
+<button class="shop-btn" onclick="addToCart('New Balance 550',1299.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Jackets">
+<img src="https://i.pinimg.com/736x/96/65/50/966550e7a7dbe7f4b9f5c4c83b9df3e2.jpg">
+<div class="overlay">
+<p>Vintage Leather Jacket - ₱1,299.99</p>
+<button class="shop-btn" onclick="addToCart('Vintage Leather Jacket',1299.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Jackets">
+<img src="https://i.pinimg.com/736x/af/17/6e/af176e7bfc2b7a739be2bb70e9bbaaf6.jpg">
+<div class="overlay">
+<p>Streetwear Hoodie - ₱599.99</p>
+<button class="shop-btn" onclick="addToCart('Streetwear Hoodie',599.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Jackets">
+<img src="https://i.pinimg.com/736x/9c/ef/0e/9cef0e65fbdedc66b7e4bbbcab8b1f94.jpg">
+<div class="overlay">
+<p>Denim Overshirt - ₱699.99</p>
+<button class="shop-btn" onclick="addToCart('Denim Overshirt',699.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="overlay">
+<p>Burger Meal - ₱120</p>
+<button class="shop-btn" onclick="addToCart('Burger Meal',120)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1604908176997-4312a4d1b92e">
+<div class="overlay">
+<p>Fried Chicken Meal - ₱150</p>
+<button class="shop-btn" onclick="addToCart('Fried Chicken Meal',150)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36">
+<div class="overlay">
+<p>Pizza Slice - ₱90</p>
+<button class="shop-btn" onclick="addToCart('Pizza Slice',90)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<div class="overlay">
+<p>Spaghetti Plate - ₱110</p>
+<button class="shop-btn" onclick="addToCart('Spaghetti Plate',110)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1604908812738-bb36b5c6a7a3">
+<div class="overlay">
+<p>Chicken Rice Bowl - ₱130</p>
+<button class="shop-btn" onclick="addToCart('Chicken Rice Bowl',130)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Snacks">
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+<div class="overlay">
+<p>French Fries - ₱70</p>
+<button class="shop-btn" onclick="addToCart('French Fries',70)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Snacks">
+<img src="https://images.unsplash.com/photo-1604908177522-402fe3cfe1b4">
+<div class="overlay">
+<p>Potato Chips - ₱50</p>
+<button class="shop-btn" onclick="addToCart('Potato Chips',50)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Snacks">
+<img src="https://images.unsplash.com/photo-1599785209707-28d1f0d9d4e2">
+<div class="overlay">
+<p>Chocolate Bar - ₱45</p>
+<button class="shop-btn" onclick="addToCart('Chocolate Bar',45)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+<div class="overlay">
+<p>Iced Coffee - ₱95</p>
+<button class="shop-btn" onclick="addToCart('Iced Coffee',95)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1524594227087-9e9c0c3bb7b1">
+<div class="overlay">
+<p>Milk Tea - ₱110</p>
+<button class="shop-btn" onclick="addToCart('Milk Tea',110)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03">
+<div class="overlay">
+<p>Soda Drink - ₱40</p>
+<button class="shop-btn" onclick="addToCart('Soda Drink',40)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+<div class="overlay">
+<p>Wireless Headphones - ₱899</p>
+<button class="shop-btn" onclick="addToCart('Wireless Headphones',899)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+<div class="overlay">
+<p>Smartphone - ₱8999</p>
+<button class="shop-btn" onclick="addToCart('Smartphone',8999)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
+<div class="overlay">
+<p>Bluetooth Speaker - ₱650</p>
+<button class="shop-btn" onclick="addToCart('Bluetooth Speaker',650)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1520975922284-8b456906c813">
+<div class="overlay">
+<p>Baseball Cap - ₱199</p>
+<button class="shop-btn" onclick="addToCart('Baseball Cap',199)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083">
+<div class="overlay">
+<p>Sunglasses - ₱299</p>
+<button class="shop-btn" onclick="addToCart('Sunglasses',299)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+<div class="overlay">
+<p>Backpack - ₱699</p>
+<button class="shop-btn" onclick="addToCart('Backpack',699)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE TOPS -->
+<div class="pin" data-category="Tops">
+<img src="https://images.unsplash.com/photo-1520975954732-35dd22299614">
+<div class="overlay">
+<p>Casual Cotton T-Shirt - ₱279.99</p>
+<button class="shop-btn" onclick="addToCart('Casual Cotton T-Shirt',279.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Tops">
+<img src="https://images.unsplash.com/photo-1520975954735-9c8fda9d9b04">
+<div class="overlay">
+<p>Loose Fit Hoodie - ₱559.99</p>
+<button class="shop-btn" onclick="addToCart('Loose Fit Hoodie',559.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Tops">
+<img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf">
+<div class="overlay">
+<p>Button Up Shirt - ₱449.99</p>
+<button class="shop-btn" onclick="addToCart('Button Up Shirt',449.99)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE BOTTOMS -->
+<div class="pin" data-category="Bottoms">
+<img src="https://images.unsplash.com/photo-1593032465171-8d4be39b1a46">
+<div class="overlay">
+<p>Jogger Pants - ₱379.99</p>
+<button class="shop-btn" onclick="addToCart('Jogger Pants',379.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Bottoms">
+<img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09">
+<div class="overlay">
+<p>Classic Blue Jeans - ₱459.99</p>
+<button class="shop-btn" onclick="addToCart('Classic Blue Jeans',459.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Bottoms">
+<img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c">
+<div class="overlay">
+<p>Summer Shorts - ₱249.99</p>
+<button class="shop-btn" onclick="addToCart('Summer Shorts',249.99)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE SHOES -->
+<div class="pin" data-category="Shoes">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<div class="overlay">
+<p>Nike Running Shoes - ₱1,499.99</p>
+<button class="shop-btn" onclick="addToCart('Nike Running Shoes',1499.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Shoes">
+<img src="https://images.unsplash.com/photo-1528701800489-20be9c6c1b3e">
+<div class="overlay">
+<p>Adidas Ultraboost - ₱1,799.99</p>
+<button class="shop-btn" onclick="addToCart('Adidas Ultraboost',1799.99)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Shoes">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+<div class="overlay">
+<p>Vans Old Skool - ₱1,199.99</p>
+<button class="shop-btn" onclick="addToCart('Vans Old Skool',1199.99)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE FOOD -->
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1600891964092-4316c288032e">
+<div class="overlay">
+<p>Beef Steak Meal - ₱199</p>
+<button class="shop-btn" onclick="addToCart('Beef Steak Meal',199)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1604908177522-4296c2c0e1c6">
+<div class="overlay">
+<p>Chicken Sandwich - ₱95</p>
+<button class="shop-btn" onclick="addToCart('Chicken Sandwich',95)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Food">
+<img src="https://images.unsplash.com/photo-1617196038435-6f8c0e1d4b0a">
+<div class="overlay">
+<p>Ramen Bowl - ₱180</p>
+<button class="shop-btn" onclick="addToCart('Ramen Bowl',180)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE DRINKS -->
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<div class="overlay">
+<p>Hot Coffee - ₱80</p>
+<button class="shop-btn" onclick="addToCart('Hot Coffee',80)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1553531889-56cc480ac5cb">
+<div class="overlay">
+<p>Fruit Smoothie - ₱120</p>
+<button class="shop-btn" onclick="addToCart('Fruit Smoothie',120)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Drinks">
+<img src="https://images.unsplash.com/photo-1577801592181-b5c7b08c66d0">
+<div class="overlay">
+<p>Lemon Iced Tea - ₱60</p>
+<button class="shop-btn" onclick="addToCart('Lemon Iced Tea',60)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE ELECTRONICS -->
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<div class="overlay">
+<p>Laptop Computer - ₱28,999</p>
+<button class="shop-btn" onclick="addToCart('Laptop Computer',28999)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3">
+<div class="overlay">
+<p>Gaming Mouse - ₱599</p>
+<button class="shop-btn" onclick="addToCart('Gaming Mouse',599)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Electronics">
+<img src="https://images.unsplash.com/photo-1580894908361-967195033215">
+<div class="overlay">
+<p>Mechanical Keyboard - ₱1,299</p>
+<button class="shop-btn" onclick="addToCart('Mechanical Keyboard',1299)">Add to Cart</button>
+</div>
+</div>
+
+<!-- MORE ACCESSORIES -->
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1">
+<div class="overlay">
+<p>Leather Wallet - ₱299</p>
+<button class="shop-btn" onclick="addToCart('Leather Wallet',299)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+<div class="overlay">
+<p>Digital Watch - ₱799</p>
+<button class="shop-btn" onclick="addToCart('Digital Watch',799)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990">
+<div class="overlay">
+<p>Travel Duffel Bag - ₱899</p>
+<button class="shop-btn" onclick="addToCart('Travel Duffel Bag',899)">Add to Cart</button>
+</div>
+</div>
+
+<!-- SCHOOL SUPPLIES -->
+
+<div class="pin" data-category="School Supplies">
+<img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+<div class="overlay">
+<p>Notebook Set - ₱120</p>
+<button class="shop-btn" onclick="addToCart('Notebook Set',120)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="School Supplies">
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
+<div class="overlay">
+<p>Ballpen Pack (10pcs) - ₱80</p>
+<button class="shop-btn" onclick="addToCart('Ballpen Pack',80)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="School Supplies">
+<img src="https://images.unsplash.com/photo-1588776814546-0c5e76cdb368">
+<div class="overlay">
+<p>Pencil Set - ₱60</p>
+<button class="shop-btn" onclick="addToCart('Pencil Set',60)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="School Supplies">
+<img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178">
+<div class="overlay">
+<p>Scientific Calculator - ₱499</p>
+<button class="shop-btn" onclick="addToCart('Scientific Calculator',499)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="School Supplies">
+<img src="https://images.unsplash.com/photo-1588776814546-0bbdbb7f5f8d">
+<div class="overlay">
+<p>Pencil Case - ₱150</p>
+<button class="shop-btn" onclick="addToCart('Pencil Case',150)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Books">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+<div class="overlay">
+<p>Math Workbook - ₱180</p>
+<button class="shop-btn" onclick="addToCart('Math Workbook',180)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Books">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+<div class="overlay">
+<p>English Dictionary - ₱350</p>
+<button class="shop-btn" onclick="addToCart('English Dictionary',350)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Books">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+<div class="overlay">
+<p>Science Textbook - ₱420</p>
+<button class="shop-btn" onclick="addToCart('Science Textbook',420)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Art Supplies">
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
+<div class="overlay">
+<p>Color Pencil Set - ₱180</p>
+<button class="shop-btn" onclick="addToCart('Color Pencil Set',180)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Art Supplies">
+<img src="https://images.unsplash.com/photo-1581091870622-2f7f4b7f8f2c">
+<div class="overlay">
+<p>Watercolor Paint Set - ₱250</p>
+<button class="shop-btn" onclick="addToCart('Watercolor Paint Set',250)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Art Supplies">
+<img src="https://images.unsplash.com/photo-1588776814546-b6d9c63d1e19">
+<div class="overlay">
+<p>Sketch Pad - ₱160</p>
+<button class="shop-btn" onclick="addToCart('Sketch Pad',160)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Office Supplies">
+<img src="https://images.unsplash.com/photo-1586281010691-6cda0c7c7d5b">
+<div class="overlay">
+<p>Stapler Set - ₱120</p>
+<button class="shop-btn" onclick="addToCart('Stapler Set',120)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Office Supplies">
+<img src="https://images.unsplash.com/photo-1588776814546-78f5f7e3e32c">
+<div class="overlay">
+<p>Sticky Notes Pack - ₱70</p>
+<button class="shop-btn" onclick="addToCart('Sticky Notes Pack',70)">Add to Cart</button>
+</div>
+</div>
+
+<div class="pin" data-category="Office Supplies">
+<img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc">
+<div class="overlay">
+<p>Paper Clips Box - ₱50</p>
+<button class="shop-btn" onclick="addToCart('Paper Clips Box',50)">Add to Cart</button>
+</div>
+</div>
+
 
     </div>
 </section>
@@ -304,10 +850,13 @@
     <label><input type="radio" name="vehicle" value="Semi Truck" data-price="700"> Semi Truck – ₱700</label>
     <h4>Buyer Location</h4>
 <select id="buyerLocation">
-    <option value="">Select your area</option>
-    <option value="Downtown">Downtown</option>
-    <option value="Suburb">Suburb</option>
-    <option value="City Edge">City Edge</option>
+<option value="">Select your area</option>
+<option value="Barangay">Barangay</option>
+<option value="Village">Village</option>
+<option value="Subdivision">Subdivision</option>
+<option value="Compound">Compound</option>
+<option value="Purok">Purok</option>
+<option value="Sitio">Sitio</option>
 </select>
 
 
@@ -320,16 +869,32 @@
 
 <section id="deliveryInfo" class="home" style="display:none;">
     <h2>Delivery Information 🚚</h2>
+    <p><strong>Your Rider:</strong> <span id="riderName">Finding rider...</span></p>
+    <p><strong>Current Location:</strong> <span id="riderLocation">Waiting...</span></p>
+    <p><strong>Arrival Timer:</strong> <span id="arrivalTimer">Calculating...</span></p>
+    <img id="riderAvatar" 
+src="https://i.imgur.com/6VBx3io.png"
+style="width:80px;height:80px;border-radius:50%;margin:10px auto;display:block;">
 
+    <h4>Delivery Status</h4>
+
+<div style="max-width:400px;margin:auto;text-align:left">
+
+<p id="statusPreparing">🟡 Preparing Order</p>
+<p id="statusPickup">⚪ Picking Up Items</p>
+<p id="statusDelivering">⚪ Delivering To You</p>
+<p id="statusArrived">⚪ Arrived</p>
+
+</div>
 
     <h4>Place to Shop:</h4>
     <p><strong>Distance Fee: ₱<span id="distanceFee">0</span></strong></p>
-    <select id="shopPlace">
-        <option value="">Select a shop</option>
-        <option value="SM Mall">SM Mall</option>
+    <select id="shopPlace" onchange="updateMap()">
+       <option value="SM Mall">SM Mall</option>
         <option value="Ayala Mall">Ayala Mall</option>
+        <option value="Divisoria Market">Divisoria Market</option>
+        <option value="Ukay-Ukay Store">Ukay-Ukay Store</option>
         <option value="Local Boutique">Local Boutique</option>
-        <option value="Thrift Store">Thrift Store</option>
     </select>
 
 
@@ -340,14 +905,18 @@
 
 
 <iframe
-    src="https://www.google.com/maps?q=SM%20Mall&output=embed"
-    width="100%"
-    height="250"
-    style="border:0; border-radius:10px;"
-    allowfullscreen=""
-    loading="lazy">
+id="mapFrame"
+src="https://www.google.com/maps?q=Quiapo%20Manila&output=embed"
+width="100%"
+height="250"
+style="border:0;border-radius:10px;">
 </iframe>
 
+<h4>Rider GPS</h4>
+
+<div style="width:100%;height:20px;background:#ddd;border-radius:10px;overflow:hidden">
+<div id="gpsBar" style="height:20px;width:0%;background:#113d00;transition:width 2s"></div>
+</div>
 
     <p><strong>Conversation with Rider:</strong></p>
 
@@ -454,21 +1023,34 @@
     </div>
 </div>
 
-
 <!-- IMAGE PREVIEW SCRIPT -->
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
 const itemImage = document.getElementById("itemImage");
 const previewImage = document.getElementById("previewImage");
-itemImage?.addEventListener("change", e => {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-            previewImage.src = reader.result;
-            previewImage.style.display = "block";
-        };
-        reader.readAsDataURL(file);
-    }
+
+if(itemImage){
+itemImage.addEventListener("change", e => {
+
+const file = e.target.files[0];
+
+if(file){
+
+const reader = new FileReader();
+
+reader.onload = () => {
+previewImage.src = reader.result;
+previewImage.style.display = "block";
+};
+
+reader.readAsDataURL(file);
+
+}
+
+});
+}
+
 });
 </script>
 
@@ -476,8 +1058,8 @@ itemImage?.addEventListener("change", e => {
 <!-- GOOGLE MAPS UPDATE -->
 <script>
 function updateMap() {
-const shop = document.getElementById("shopPlace").value;
-const iframe = document.querySelector('#deliveryInfo iframe');
+const iframe = document.getElementById("mapFrame");
+const shop = document.getElementById("shopPlace")?.value;
 
 
 if (iframe && shop) {
@@ -486,8 +1068,11 @@ iframe.src = `https://www.google.com/maps?q=${encodeURIComponent(shop)}&output=e
 }
 </script>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+
 /* =======================
-   GLOBAL STATE
+GLOBAL STATE
 ======================= */
 let cart = [];
 let baseTotal = 0;
@@ -497,39 +1082,56 @@ let distanceFee = 0;
 let riderMessages = [];
 let selectedRating = 0;
 
+const riders = [
+"Kuya Mark",
+"Kuya Jayson",
+"Kuya Carlo",
+"Kuya Kevin",
+"Kuya Adrian"
+];
+
+const riderLocations = [
+"Quiapo",
+"Sampaloc",
+"Tondo",
+"Pasig",
+"Manila City"
+];
+
 
 /* =======================
-   LOCATION DISTANCES (km)
+LOCATION DISTANCES
 ======================= */
 const locations = {
-    "SM Mall": {
-        "Downtown": 4,
-        "Suburb": 7,
-        "City Edge": 10
-    },
-    "Ayala Mall": {
-        "Downtown": 6,
-        "Suburb": 5,
-        "City Edge": 9
-    },
-    "Local Boutique": {
-        "Downtown": 2,
-        "Suburb": 4,
-        "City Edge": 6
-    },
-    "Thrift Store": {
-        "Downtown": 1,
-        "Suburb": 3,
-        "City Edge": 5
-    }
+
+"SM Mall":{
+"Barangay":3,"Village":5,"Subdivision":6,"Compound":4,"Purok":7,"Sitio":9
+},
+
+"Ayala Mall":{
+"Barangay":4,"Village":6,"Subdivision":7,"Compound":5,"Purok":8,"Sitio":10
+},
+
+"Divisoria Market":{
+"Barangay":2,"Village":4,"Subdivision":5,"Compound":3,"Purok":6,"Sitio":8
+},
+
+"Ukay-Ukay Store":{
+"Barangay":1,"Village":3,"Subdivision":4,"Compound":2,"Purok":5,"Sitio":7
+},
+
+"Local Boutique":{
+"Barangay":2,"Village":4,"Subdivision":5,"Compound":3,"Purok":6,"Sitio":7
+}
+
 };
 
 
-const perKmRate = 15; // ₱ per km
+const perKmRate = 15;
 
 
 /* =======================
-   CACHE ELEMENTS
+CACHE ELEMENTS
 ======================= */
 const homePage = document.getElementById("homePage");
 const shopPage = document.getElementById("shopPage");
@@ -537,6 +1139,9 @@ const checkoutSummary = document.getElementById("checkoutSummary");
 const checkoutVehicle = document.getElementById("checkoutVehicle");
 const deliveryInfo = document.getElementById("deliveryInfo");
 const ratingSection = document.getElementById("ratingSection");
+const receiptPage = document.getElementById("receiptPage");
+
+
 const header = document.querySelector("header");
 
 
@@ -544,480 +1149,767 @@ const cartCount = document.getElementById("cartCount");
 const cartModal = document.getElementById("cartModal");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
-const shopPlace = document.getElementById("shopPlace");
-const buyerLocation = document.getElementById("buyerLocation");
-const distanceFeeEl = document.getElementById("distanceFee");
 
 
 const checkoutSubtotal = document.getElementById("checkoutSubtotal");
 const finalTotal = document.getElementById("finalTotal");
 const orderSummary = document.getElementById("orderSummary");
+
+
 const searchInput = document.getElementById("searchInput");
+
+
 const fullName = document.getElementById("fullName");
-const receiptPage = document.getElementById("receiptPage");
+
+
+const shopPlace = document.getElementById("shopPlace");
+const buyerLocation = document.getElementById("buyerLocation");
+const distanceFeeEl = document.getElementById("distanceFee");
 
 
 /* =======================
-   NAVIGATION
+NAVIGATION
 ======================= */
-function hideAllPages() {
-    homePage.style.display = "none";
-    shopPage.style.display = "none";
-    checkoutSummary.style.display = "none";
-    checkoutVehicle.style.display = "none";
-    deliveryInfo.style.display = "none";
-    ratingSection.style.display = "none";
-    receiptPage.style.display = "none";
+function hideAllPages(){
+homePage.style.display="none";
+shopPage.style.display="none";
+checkoutSummary.style.display="none";
+checkoutVehicle.style.display="none";
+deliveryInfo.style.display="none";
+ratingSection.style.display="none";
+receiptPage.style.display="none";
 }
 
 
-function showHome() {
-    hideAllPages();
-    header.style.display = "flex";
-    homePage.style.display = "block";
+window.showHome = function(){
+hideAllPages();
+header.style.display="flex";
+homePage.style.display="block";
 }
 
 
-function showShop() {
-    hideAllPages();
-    header.style.display = "flex";
-    shopPage.style.display = "block";
-}
-
-
-/* =======================
-   CART
-======================= */
-function addToCart(name, price) {
-    cart.push({ name, price: Number(price) });
-    cartCount.textContent = cart.length;
-    alert(name + " added to cart!");
-}
-
-
-function openCartModal() {
-    cartModal.style.display = "flex";
-    displayCart();
-}
-
-
-function closeCartModal() {
-    cartModal.style.display = "none";
-}
-
-
-function displayCart() {
-    let total = 0;
-    cartItems.innerHTML = "";
-
-
-    cart.forEach((item, i) => {
-        total += item.price;
-        cartItems.innerHTML += `
-            <p>
-                ${item.name} - ₱${item.price.toFixed(2)}
-                <button onclick="removeFromCart(${i})"
-                    style="margin-inline-start:10px;background:red;color:white;border:none;border-radius:5px;">
-                    ✖
-                </button>
-            </p>`;
-    });
-
-
-    cartTotal.textContent = total.toFixed(2);
-}
-
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    cartCount.textContent = cart.length;
-    displayCart();
+window.showShop = function(){
+hideAllPages();
+header.style.display="flex";
+shopPage.style.display="block";
 }
 
 
 /* =======================
-   CHECKOUT
+CART
 ======================= */
-function openCheckout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
-
-
-    cartModal.style.display = "none";
-    hideAllPages();
-    header.style.display = "none";
-    checkoutSummary.style.display = "block";
-
-
-    baseTotal = 0;
-    discountValue = 0;
-    document.getElementById("discountAmount").textContent = "0.00";
-
-
-    orderSummary.innerHTML = "";
-    cart.forEach(item => {
-        baseTotal += item.price;
-        orderSummary.innerHTML += `<p>${item.name} - ₱${item.price.toFixed(2)}</p>`;
-    });
-
-
-    checkoutSubtotal.textContent = baseTotal.toFixed(2);
+window.addToCart = function(name,price){
+cart.push({name,price:Number(price)});
+cartCount.textContent = cart.length;
+showNotification(name + " added to cart");
 }
 
 
-/* =======================
-   DISCOUNT
-======================= */
-function applyDiscount() {
-    const code = document.getElementById("discountInput").value.trim();
-    if (!code) return alert("Enter a discount code.");
-
-
-    const saved = JSON.parse(localStorage.getItem("burriCartDiscount"));
-    if (!saved || saved.code !== code) return alert("Invalid discount code.");
-    if (new Date(saved.expires) < new Date()) return alert("Code expired.");
-
-
-    discountValue = (baseTotal * saved.amount) / 100;
-    document.getElementById("discountAmount").textContent = discountValue.toFixed(2);
-    updateFinalTotal();
+window.openCartModal = function(){
+cartModal.style.display="flex";
+displayCart();
 }
 
 
-/* =======================
-   VEHICLE & DISTANCE
-======================= */
-document.querySelectorAll('input[name="vehicle"]').forEach(v => {
-    v.addEventListener("change", () => {
-        vehicleFee = Number(v.dataset.price);
-        updateFinalTotal();
-    });
+window.closeCartModal = function(){
+cartModal.style.display="none";
+}
+
+
+function displayCart(){
+
+
+let total=0;
+cartItems.innerHTML="";
+
+
+cart.forEach((item,i)=>{
+total+=item.price;
+
+
+cartItems.innerHTML+=`
+<p>
+${item.name} - ₱${item.price.toFixed(2)}
+<button onclick="removeFromCart(${i})"
+style="margin-left:10px;background:red;color:white;border:none;border-radius:5px;">
+✖
+</button>
+</p>`;
 });
 
 
-document.getElementById("shopPlace").addEventListener("change", () => {
+cartTotal.textContent=total.toFixed(2);
+}
+
+
+window.removeFromCart = function(index){
+cart.splice(index,1);
+cartCount.textContent=cart.length;
+displayCart();
+}
+
+window.onclick = function(e){
+
+const modal = document.getElementById("cartModal");
+
+if(e.target === modal){
+modal.style.display = "none";
+}
+
+}
+
+/* =======================
+CHECKOUT
+======================= */
+window.openCheckout = function(){
+
+
+if(cart.length===0){
+alert("Your cart is empty!");
+return;
+}
+
+
+cartModal.style.display="none";
+hideAllPages();
+header.style.display="none";
+
+
+checkoutSummary.style.display="block";
+
+
+baseTotal=0;
+discountValue=0;
+
+
+document.getElementById("discountAmount").textContent="0.00";
+orderSummary.innerHTML="";
+
+
+cart.forEach(item=>{
+baseTotal+=item.price;
+orderSummary.innerHTML+=`<p>${item.name} - ₱${item.price.toFixed(2)}</p>`;
+});
+
+
+checkoutSubtotal.textContent=baseTotal.toFixed(2);
+}
+
+
+/* =======================
+DISCOUNT
+======================= */
+window.applyDiscount = function(){
+
+
+const code=document.getElementById("discountInput").value.trim();
+
+
+if(!code){
+alert("Enter a discount code.");
+return;
+}
+
+
+const saved=JSON.parse(localStorage.getItem("burriCartDiscount"));
+
+
+if(!saved || saved.code!==code){
+alert("Invalid discount code.");
+return;
+}
+
+
+if(new Date(saved.expires)<new Date()){
+alert("Code expired.");
+return;
+}
+
+
+discountValue=(baseTotal*saved.amount)/100;
+
+
+document.getElementById("discountAmount").textContent=
+discountValue.toFixed(2);
+
+
+updateFinalTotal();
+}
+
+
+/* =======================
+VEHICLE
+======================= */
+document.querySelectorAll('input[name="vehicle"]').forEach(v=>{
+v.addEventListener("change",()=>{
+vehicleFee=Number(v.dataset.price);
+updateFinalTotal();
+});
+});
+
+
+/* =======================
+DISTANCE
+======================= */
+
+
+if(shopPlace){
+shopPlace.addEventListener("change",()=>{
 updateMap();
 updateDistanceFee();
 });
-
-
-buyerLocation.addEventListener("change", updateDistanceFee);
-
-
-function updateDistanceFee() {
-    const shop = shopPlace.value;
-    const buyer = buyerLocation.value;
-
-
-    if (!shop || !buyer) {
-        distanceFee = 0;
-        distanceFeeEl.textContent = "0.00";
-        updateFinalTotal();
-        return;
-    }
-
-
-    const distanceKm = locations[shop]?.[buyer];
-
-
-    if (!distanceKm) {
-        distanceFee = 0;
-        distanceFeeEl.textContent = "0.00";
-        updateFinalTotal();
-        return;
-    }
-
-
-    distanceFee = distanceKm * perKmRate;
-    distanceFeeEl.textContent =
-        `${distanceFee.toFixed(2)} (${distanceKm} km × ₱${perKmRate})`;
-   
-    updateFinalTotal();
 }
 
 
-// Global function
-function updateFinalTotal() {
-    const total = baseTotal - discountValue + vehicleFee + distanceFee;
-    finalTotal.textContent = total.toFixed(2);
+if(buyerLocation){
+buyerLocation.addEventListener("change",updateDistanceFee);
 }
 
 
-/* =======================
-   ORDER FLOW
-======================= */
-function goToVehiclePage() {
-    if (!document.querySelector('input[name="payment"]:checked')) {
-        alert("Select payment method.");
-        return;
-    }
-    hideAllPages();
-    header.style.display = "none";
-    checkoutVehicle.style.display = "block";
-    updateFinalTotal();
+function updateDistanceFee(){
 
 
+const shop=shopPlace.value;
+const buyer=buyerLocation.value;
+
+
+if(!shop || !buyer){
+distanceFee=0;
+distanceFeeEl.textContent="0.00";
+updateFinalTotal();
+return;
 }
 
 
-function placeOrder() {
-    if (!fullName.value.trim()) return alert("Enter name.");
-    if (!document.querySelector('input[name="vehicle"]:checked'))
-        return alert("Select vehicle.");
+const distanceKm=locations[shop]?.[buyer];
 
 
-    hideAllPages();
-    header.style.display = "none";
-    deliveryInfo.style.display = "block";
+if(!distanceKm){
+distanceFee=0;
+distanceFeeEl.textContent="0.00";
+updateFinalTotal();
+return;
+}
 
 
-    setPickupTime();
-    updateDistanceFee();
+distanceFee=distanceKm*perKmRate;
+
+
+distanceFeeEl.textContent=
+`${distanceFee.toFixed(2)} (${distanceKm} km × ₱${perKmRate})`;
+
+
+updateFinalTotal();
 }
 
 
 /* =======================
-   DELIVERY
+TOTAL
 ======================= */
-function setPickupTime() {
-    document.getElementById("pickupTime").textContent = "30–60 minutes";
-}
+function updateFinalTotal(){
 
 
-function confirmDelivery() {
-    hideAllPages();
-    header.style.display = "none";
-    // Show rating section before receipt
-    ratingSection.style.display = "block";
-}
+const total=baseTotal-discountValue+vehicleFee+distanceFee;
 
 
-/* =======================
-   CHAT
-======================= */
-function sendMessage() {
-    const input = document.getElementById("riderMessage");
-    if (!input.value.trim()) return;
-
-
-    document.getElementById("chatBox").innerHTML +=
-        `<div class="chat-message">${input.value}</div>`;
-
-
-    riderMessages.push(input.value);
-    input.value = "";
+finalTotal.textContent=total.toFixed(2);
 }
 
 
 /* =======================
-   SEARCH & FILTER
+ORDER FLOW
 ======================= */
-function performSearch() {
+
+
+window.goToVehiclePage = function(){
+
+
+if(!document.querySelector('input[name="payment"]:checked')){
+alert("Select payment method.");
+return;
+}
+
+
+hideAllPages();
+checkoutVehicle.style.display="block";
+
+
+updateFinalTotal();
+}
+
+
+window.placeOrder = function(){
+
+
+if(!fullName.value.trim()){
+alert("Enter name.");
+return;
+}
+
+
+if(!document.querySelector('input[name="vehicle"]:checked')){
+alert("Select vehicle.");
+return;
+}
+
+
+hideAllPages();
+deliveryInfo.style.display="block";
+assignRider();
+startDeliveryTracker();
+
+
+setPickupTime();
+updateDistanceFee();
+}
+
+function assignRider(){
+
+const rider =
+riders[Math.floor(Math.random()*riders.length)];
+
+const location =
+riderLocations[Math.floor(Math.random()*riderLocations.length)];
+
+document.getElementById("riderName").textContent=rider;
+document.getElementById("riderLocation").textContent=location;
+
+}
+
+/* =======================
+PICKUP TIME
+======================= */
+
+
+function setPickupTime(){
+document.getElementById("pickupTime").textContent="30–60 minutes";
+}
+
+function startArrivalTimer(){
+
+let timeLeft = 900; // 15 minutes
+
+let arrivalTimerInterval;
+
+clearInterval(arrivalTimerInterval);
+
+arrivalTimerInterval = setInterval(()=>{
+
+document.getElementById("arrivalTimer").textContent =
+`${minutes}m ${seconds}s`;
+
+timeLeft--;
+
+if(timeLeft <= 0){
+clearInterval(timer);
+document.getElementById("arrivalTimer").textContent = "Rider Arrived!";
+}
+
+},1000);
+
+}
+
+/* =======================
+DELIVERY CONFIRM
+======================= */
+
+
+window.confirmDelivery = function(){
+
+
+hideAllPages();
+ratingSection.style.display="block";
+
+
+}
+
+function startDeliveryTracker(){
+
+const gpsBar=document.getElementById("gpsBar");
+
+startArrivalTimer();
+moveRiderOnMap();
+
+setTimeout(()=>{
+document.getElementById("statusPreparing").textContent="🟢 Preparing Order";
+document.getElementById("statusPickup").textContent="🟡 Picking Up Items";
+gpsBar.style.width="25%";
+
+showNotification("Order is being prepared");
+playNotificationSound();
+
+},3000);
+
+setTimeout(()=>{
+document.getElementById("statusPickup").textContent="🟢 Picking Up Items";
+document.getElementById("statusDelivering").textContent="🟡 Delivering To You";
+document.getElementById("riderLocation").textContent="On the way to your area";
+gpsBar.style.width="60%";
+
+showNotification("Rider picked up your items");
+playNotificationSound();
+
+},7000);
+
+setTimeout(()=>{
+document.getElementById("statusDelivering").textContent="🟢 Delivering To You";
+document.getElementById("statusArrived").textContent="🟡 Arrived";
+gpsBar.style.width="90%";
+
+showNotification("Rider is near your location");
+playNotificationSound();
+
+},12000);
+
+setTimeout(()=>{
+document.getElementById("statusArrived").textContent="🟢 Arrived";
+gpsBar.style.width="100%";
+
+showNotification("Your rider has arrived!");
+playNotificationSound();
+
+},16000);
+
+}
+
+function showNotification(text){
+
+const note = document.createElement("div");
+note.className = "notification";
+note.textContent = text;
+
+document.body.appendChild(note);
+
+setTimeout(()=>{
+note.remove();
+},3000);
+
+}
+
+function playNotificationSound(){
+const sound=document.getElementById("notifSound");
+if(sound){
+sound.currentTime = 0;
+sound.play().catch(()=>{});
+}
+}
+
+function moveRiderOnMap(){
+
+const route = [
+
+"Divisoria Manila",
+"Recto Manila",
+"Quiapo Manila",
+"Legarda Manila",
+"Sampaloc Manila"
+
+];
+
+let step = 0;
+
+const map = document.getElementById("mapFrame");
+
+const travel = setInterval(()=>{
+
+map.src =
+`https://www.google.com/maps?q=${encodeURIComponent(route[step])}&output=embed`;
+
+document.getElementById("riderLocation").textContent =
+`Rider passing: ${route[step]}`;
+
+step++;
+
+if(step >= route.length){
+
+clearInterval(travel);
+
+document.getElementById("riderLocation").textContent =
+"Arrived at your location";
+
+}
+
+},4000);
+
+}
+
+/* =======================
+CHAT
+======================= */
+
+
+window.sendMessage = function(){
+
+
+const input=document.getElementById("riderMessage");
+
+
+if(!input.value.trim()) return;
+
+
+document.getElementById("chatBox").innerHTML+=
+`<div class="chat-message">${input.value}</div>`;
+
+
+riderMessages.push(input.value);
+
+
+input.value="";
+}
+
+
+/* =======================
+SEARCH
+======================= */
+
+
+window.performSearch = function(){
+
 const term = searchInput.value.toLowerCase();
+const category = document.getElementById("categoryFilter").value;
 
+document.querySelectorAll(".pin").forEach(pin=>{
 
-document.querySelectorAll(".pin").forEach(pin => {
 const text = pin.innerText.toLowerCase();
+const matchSearch = text.includes(term);
+const matchCategory = category==="all" || pin.dataset.category===category;
 
+pin.style.display = (matchSearch && matchCategory) ? "" : "none";
 
-if (text.includes(term)) {
-pin.style.display = "block";
-} else {
-pin.style.display = "none";
-}
 });
+
 }
 
+/* =======================
+CATEGORY FILTER
+======================= */
 
 
+window.filterCategory = function(){
 
-function filterCategory() {
-    const val = document.getElementById("categoryFilter").value;
-    document.querySelectorAll(".pin").forEach(pin => {
-        pin.style.display =
-            val === "all" || pin.dataset.category === val ? "block" : "none";
-    });
+
+const val=document.getElementById("categoryFilter").value;
+
+
+document.querySelectorAll(".pin").forEach(pin=>{
+
+
+pin.style.display =
+(val==="all" || pin.dataset.category===val) ? "" : "none";
+
+
+});
 }
 
 
 /* =======================
-   RATING SECTION FIX
+STAR RATING
 ======================= */
 
 
-const starContainer = document.getElementById("starRating");
-const stars = starContainer.querySelectorAll("span");
-const rateBtn = document.getElementById("rateBtn");
+const starContainer=document.getElementById("starRating");
 
 
-function highlightStars(rating) {
-    stars.forEach(star => {
-        const val = Number(star.dataset.value);
-        star.textContent = val <= rating ? "★" : "☆";
-    });
+if(starContainer){
+
+
+const stars=starContainer.querySelectorAll("span");
+const rateBtn=document.getElementById("rateBtn");
+
+
+function highlightStars(rating){
+
+
+stars.forEach(star=>{
+
+
+const val=Number(star.dataset.value);
+
+
+star.textContent=val<=rating?"★":"☆";
+
+
+});
 }
 
 
-// Hover preview
-stars.forEach(star => {
-    star.addEventListener("mouseenter", () => {
-        highlightStars(Number(star.dataset.value));
-    });
+stars.forEach(star=>{
 
 
-    star.addEventListener("click", () => {
-        selectedRating = Number(star.dataset.value);
-        highlightStars(selectedRating);
-    });
+star.addEventListener("mouseenter",()=>{
+highlightStars(Number(star.dataset.value));
 });
 
 
-// Restore selected rating when mouse leaves
-starContainer.addEventListener("mouseleave", () => {
-    highlightStars(selectedRating);
+star.addEventListener("click",()=>{
+selectedRating=Number(star.dataset.value);
+highlightStars(selectedRating);
 });
 
 
-// Rate button logic
-rateBtn.addEventListener("click", () => {
-    if (selectedRating === 0) {
-        alert("Please select a rating first ⭐");
-        return;
-    }
-
-
-    // Generate discount
-    const discountCode = "BURRI10";
-    const expiry = new Date();
-    expiry.setDate(expiry.getDate() + 7);
-
-
-    localStorage.setItem("burriCartDiscount", JSON.stringify({
-        code: discountCode,
-        amount: 10,
-        expires: expiry.toISOString()
-    }));
-
-
-    alert(
-        `Thank you for rating ${selectedRating}⭐!\n\n` +
-        `Here’s a 10% discount code for your next order:\n` +
-        `${discountCode} (valid for 7 days)`
-    );
-
-
-    // Hide rating
-    ratingSection.style.display = "none";
-
-
-    // 👉 SHOW RECEIPT
-    generateReceipt();
-    receiptPage.style.display = "block";
 });
 
 
-function generateReceipt() {
-    document.getElementById("receiptName").textContent = fullName.value;
-    document.getElementById("receiptEmail").textContent =
-        document.getElementById("email").value;
-    document.getElementById("receiptAddress").textContent =
-        document.getElementById("address").value;
+starContainer.addEventListener("mouseleave",()=>{
+highlightStars(selectedRating);
+});
 
 
-    const itemsBox = document.getElementById("receiptItems");
-    itemsBox.innerHTML = "<strong>Items:</strong><br>";
+rateBtn.addEventListener("click",()=>{
 
 
-    cart.forEach(item => {
-        itemsBox.innerHTML += `${item.name} – ₱${item.price.toFixed(2)}<br>`;
-    });
-
-
-    document.getElementById("receiptSubtotal").textContent = baseTotal.toFixed(2);
-    document.getElementById("receiptDiscount").textContent = discountValue.toFixed(2);
-    document.getElementById("receiptVehicle").textContent = vehicleFee.toFixed(2);
-    document.getElementById("receiptDistance").textContent = distanceFee.toFixed(2);
-
-
-    const total = baseTotal - discountValue + vehicleFee + distanceFee;
-    document.getElementById("receiptTotal").textContent = total.toFixed(2);
+if(selectedRating===0){
+alert("Please select a rating first ⭐");
+return;
 }
 
 
-function finishOrder() {
-    receiptPage.style.display = "none";
-    resetOrderState();
-    showHome();
+const discountCode="BURRI10";
+
+
+const expiry=new Date();
+expiry.setDate(expiry.getDate()+7);
+
+
+localStorage.setItem("burriCartDiscount",JSON.stringify({
+code:discountCode,
+amount:10,
+expires:expiry.toISOString()
+}));
+
+
+alert(
+`Thank you for rating ${selectedRating}⭐!\n\n`+
+`Here’s a 10% discount code:\n${discountCode}`
+);
+
+
+ratingSection.style.display="none";
+
+
+generateReceipt();
+receiptPage.style.display="block";
+
+
+});
+
+
 }
 
 
-</script>
+/* =======================
+RECEIPT
+======================= */
 
 
-<script>
-function resetOrderState() {
-    /* ===== CART ===== */
-    cart = [];
-    cartCount.textContent = "0";
-    cartItems.innerHTML = "";
-    cartTotal.textContent = "0.00";
+function generateReceipt(){
 
 
-    /* ===== TOTALS ===== */
-    baseTotal = 0;
-    discountValue = 0;
-    vehicleFee = 0;
-    distanceFee = 0;
+document.getElementById("receiptName").textContent=
+document.getElementById("fullName").value;
 
 
-    checkoutSubtotal.textContent = "0.00";
-    finalTotal.textContent = "0.00";
-    document.getElementById("discountAmount").textContent = "0.00";
-    document.getElementById("discountInput").value = "";
+document.getElementById("receiptEmail").textContent=
+document.getElementById("email").value;
 
 
-    /* ===== CUSTOMER INFO ===== */
-    document.getElementById("fullName").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("address").value = "";
+document.getElementById("receiptAddress").textContent=
+document.getElementById("address").value;
 
 
-    /* ===== PAYMENT & VEHICLE ===== */
-    document.querySelectorAll('input[name="payment"]').forEach(p => p.checked = false);
-    document.querySelectorAll('input[name="vehicle"]').forEach(v => v.checked = false);
+const itemsBox=document.getElementById("receiptItems");
 
 
-    /* ===== LOCATION & SHOP ===== */
-    buyerLocation.value = "";
-    shopPlace.value = "";
-    distanceFeeEl.textContent = "0.00";
+itemsBox.innerHTML="<strong>Items:</strong><br>";
 
 
-    /* ===== CHAT ===== */
-    riderMessages = [];
-document.getElementById("chatBox").innerHTML =
+cart.forEach(item=>{
+itemsBox.innerHTML+=
+`${item.name} – ₱${item.price.toLocaleString(undefined,{minimumFractionDigits:2})}<br>`;
+});
+
+
+document.getElementById("receiptSubtotal").textContent=baseTotal.toFixed(2);
+document.getElementById("receiptDiscount").textContent=discountValue.toFixed(2);
+document.getElementById("receiptVehicle").textContent=vehicleFee.toFixed(2);
+document.getElementById("receiptDistance").textContent=distanceFee.toFixed(2);
+
+
+const total=baseTotal-discountValue+vehicleFee+distanceFee;
+
+
+document.getElementById("receiptTotal").textContent=total.toFixed(2);
+}
+
+
+/* =======================
+FINISH ORDER
+======================= */
+
+
+window.finishOrder = function(){
+
+
+receiptPage.style.display="none";
+
+
+resetOrderState();
+
+
+showHome();
+
+
+}
+
+
+/* =======================
+RESET
+======================= */
+
+function resetOrderState(){
+
+cart=[];
+cartCount.textContent="0";
+cartItems.innerHTML="";
+cartTotal.textContent="0.00";
+
+baseTotal=0;
+discountValue=0;
+vehicleFee=0;
+distanceFee=0;
+
+checkoutSubtotal.textContent="0.00";
+finalTotal.textContent="0.00";
+
+document.getElementById("discountInput").value="";
+document.getElementById("discountAmount").textContent="0.00";
+
+document.getElementById("fullName").value="";
+document.getElementById("email").value="";
+document.getElementById("address").value="";
+
+document.querySelectorAll('input[name="payment"]').forEach(p=>p.checked=false);
+document.querySelectorAll('input[name="vehicle"]').forEach(v=>v.checked=false);
+
+buyerLocation.value="";
+shopPlace.value="";
+distanceFeeEl.textContent="0.00";
+
+riderMessages=[];
+document.getElementById("chatBox").innerHTML=
 `<div class="chat-message chat-rider">
 Hi! I’m your BurriCart rider. What should I buy? 🙂
 </div>`;
-document.getElementById("riderMessage").value = "";
 
-
-    /* ===== IMAGE UPLOAD ===== */
-    document.getElementById("itemImage").value = "";
-    const preview = document.getElementById("previewImage");
-    preview.style.display = "none";
-    preview.src = "";
-
-
-    /* ===== RATING ===== */
-    selectedRating = 0;
-    highlightStars(0);
+document.getElementById("riderMessage").value="";
+const preview=document.getElementById("previewImage");
+preview.style.display="none";
+preview.src="";
+selectedRating=0;
 }
-</script>
+});
 
+</script>
 
 </body>
 </html>
-
